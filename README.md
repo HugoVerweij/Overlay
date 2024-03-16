@@ -1,5 +1,6 @@
 # Overlay
-![RBuRJrSlSF](https://github.com/HugoVerweij/Overlay/assets/163334632/fe912b3f-b1ac-4681-8f50-c17654ce6d2e)
+![image](https://github.com/HugoVerweij/Overlay/assets/163334632/919a0121-fa26-4d05-a615-348fbfd4bcf1)
+
 
 ## Wat is Overlay precies?
 Overlay is een WPF applicatie dat zich 'over' het gehele scherm projecteert, waardoor de gebruiker gemakkelijk widgets kan aanroepen. Hier kan men bijvoorbeeld denken aan notities, clock, date & time, calculator, notifications, integratie met andere persoonlijke projecten, etc.
