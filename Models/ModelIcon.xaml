@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="Overlay.Models.ModelIcon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Overlay.Models"
+             UseLayoutRounding="True"
+             mc:Ignorable="d"
+             d:DesignHeight="100" d:DesignWidth="100">
+
+    <Grid MouseDown="Grid_MouseDown">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0"
+               x:Name="imageIcon"
+               RenderOptions.BitmapScalingMode="HighQuality"/>
+
+        <TextBlock Grid.Row="1"
+                   x:Name="textblockName"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="0, 5, 0, 0"
+                   Foreground="Silver"
+                   FontFamily="{StaticResource Courier Prime Sans}">
+
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="1.7" ShadowDepth="1" Opacity="0.4" />
+            </TextBlock.Effect>
+
+        </TextBlock>
+
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                                          Storyboard.TargetName="textblockName">
+                            <LinearColorKeyFrame KeyTime="0:0:0" Value="Silver"/>
+                            <LinearColorKeyFrame KeyTime="0:0:0.25" Value="White"/>
+                        </ColorAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                        Storyboard.TargetName="textblockName"
+                                        To="Silver"
+                                        FillBehavior="HoldEnd" 
+                                        Duration="0:0:0.25"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
+    </Grid>
+
+</UserControl>

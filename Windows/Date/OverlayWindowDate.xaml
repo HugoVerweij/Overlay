@@ -1,0 +1,25 @@
+﻿<custom:OverlayWindowBase xmlns:custom="clr-namespace:Overlay.Windows" x:Class="Overlay.Windows.Date.OverlayWindowDate"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                          xmlns:local="clr-namespace:Overlay.Windows.Date"
+                          mc:Ignorable="d"
+                          Loaded="OverlayWindowDate_Loaded"
+                          d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Viewbox>
+            <TextBlock x:Name="textblockDate"
+                       Foreground="White"
+                       FontFamily="{StaticResource Courier Prime Sans}">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="1"
+                                      Direction="305"
+                                      Color="Black"
+                                      Opacity="0.2"
+                                      BlurRadius="1" />
+                </TextBlock.Effect>
+            </TextBlock>
+        </Viewbox>
+    </Grid>
+</custom:OverlayWindowBase>

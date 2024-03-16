@@ -1,0 +1,90 @@
+﻿<Window x:Class="Overlay.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Overlay"
+        xmlns:kek="clr-namespace:Overlay.Windows"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True"
+        KeyboardNavigation.TabNavigation="None"
+        AllowsTransparency="True"
+        ShowInTaskbar="False"
+        Background="#11000000"
+        Title="Overlay" Height="450" Width="800" Loaded="Window_Loaded" Deactivated="Window_Deactivated" WindowState="Maximized" Closing="Window_Closing">
+    <Grid x:Name="ContentArea">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.4*" />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+            <RowDefinition x:Name="rowOverlayTray" Height="0" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <Canvas x:Name="WidgetArea">
+        </Canvas>
+
+        <Rectangle Grid.Row="1" Grid.Column="1"
+                   Fill="Transparent"
+                   MouseEnter="Hover_MouseEnter"
+                   MouseLeave="Hover_MouseLeave" />
+
+        <!-- Top line -->
+        <Border Grid.Row="2" Grid.Column="1"
+                x:Name="kek"
+                BorderThickness="0,1.5,0,0"
+                Opacity="0">
+            <!-- Line -->
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                    <GradientStop Color="Transparent" Offset="0.0" />
+                    <GradientStop Color="Silver" Offset="0.5" />
+                    <GradientStop Color="Transparent" Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            
+            <!-- Background -->
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0, 1" EndPoint="1, 0">
+                    <GradientStop Color="Transparent" Offset="0.02" />
+                    <GradientStop Color="#19C0C0C0" Offset="0.5" />
+                    <GradientStop Color="Transparent" Offset="0.98" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        
+        <!-- Scrollview -->
+        <ScrollViewer Grid.Row="2" Grid.Column="1"
+                      x:Name="scrollArea"
+                      MouseEnter="Tray_MouseEnter"
+                      MouseLeave="Tray_MouseLeave"
+                      FocusVisualStyle="{x:Null}"
+                      VerticalScrollBarVisibility="Hidden"
+                      Margin="0, 2, 0, 0">
+            <WrapPanel Grid.Row="2" Grid.Column="1"
+                       x:Name="contentArea">
+                
+            </WrapPanel>
+            
+        </ScrollViewer>
+
+        <!-- Bottom line -->
+        <Border Grid.Row="3" Grid.Column="1" BorderThickness="0,1.5,0,0">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                    <GradientStop Color="Transparent" Offset="0.0" />
+                    <GradientStop Color="Silver" Offset="0.5" />
+                    <GradientStop Color="Transparent" Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+        </Border>
+    </Grid>
+</Window>
